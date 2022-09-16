@@ -42,3 +42,12 @@ To generate the Windows executable `.exe` (you can skip this section if you plan
 - Install `PyInstaller` by running `pip install pyinstaller`.
 - Generate the executable by running: `pyinstaller -F main.py`.
 - Execute the `.exe` version of this script located in `dist/main.exe` with administrative powers (required since it will create a file within `...\Windows\Start Menu\Programs\Startup`).
+
+## Environment
+
+Sometimes the environment info is useful to track version conflicts:
+
+```
+Python 3.10.5
+Windows 10 Pro
+```
