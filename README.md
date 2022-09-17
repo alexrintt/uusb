@@ -12,6 +12,8 @@ The scenario:
 
 The expected behavior was to keep the USB thetering through the sessions.
 
+> **Note** some devices does that automatically and so this script is pointless, but another ones doesn't.
+
 So this script will manually enable USB tethering when connecting to my PC.
 
 ```shell
