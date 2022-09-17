@@ -1,14 +1,8 @@
 import os
-from time import sleep
-import wmi
 import getpass
 from pathlib import Path
 import shutil
 import sys
-import re
-import subprocess
-import win32file
-from ctypes import windll
 
 USER_NAME = getpass.getuser()
 
