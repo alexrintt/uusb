@@ -2,17 +2,48 @@
 
 This Python script enables USB Tethering when a USB device is connected on Windows, the script runs automatically on startup being required to run manually only once.
 
-Current issue:
+The scenario:
 
-1. I connect my Android device
+1. I connect my android device through USB.
 2. Enable USB tethering.
 3. Disconnected device from USB.
-4. Reconnect USB device.
+4. Reconnect the android device also through USB.
 5. USB tethering is disabled.
 
 The expected behavior was to keep the USB thetering through the sessions.
 
 So this script will manually enable USB tethering when connecting to my PC.
+
+```shell
+# .exe running from startup, so skip the step of copying itself to the startup folder
+This is an automatic execution, skipping this step.
+
+# Start pooling for devices through adb
+Listening for devices...
+
+# First pooling call adb devices which starts the daemon server
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+
+# Trigger the callback
+New device connected
+
+# Then enable USB tethering through adb
+USB Tethering command was executed...
+
+# Removed device callback (does nothing but notificate)
+Some device was removed
+
+# So on...
+New device connected
+USB Tethering command was executed...
+Some device was removed
+New device connected
+USB Tethering command was executed...
+Some device was removed
+New device connected
+USB Tethering command was executed...
+```
 
 ## Source
 
