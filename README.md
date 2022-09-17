@@ -2,17 +2,50 @@
 
 This Python script enables USB Tethering when a USB device is connected on Windows, the script runs automatically on startup being required to run manually only once.
 
-Current issue:
+The scenario:
 
-1. I connect my Android device
+1. I connect my android device through USB.
 2. Enable USB tethering.
 3. Disconnected device from USB.
-4. Reconnect USB device.
+4. Reconnect the android device also through USB.
 5. USB tethering is disabled.
 
 The expected behavior was to keep the USB thetering through the sessions.
 
+> **Note** some devices does that automatically and so this script is pointless, but another ones doesn't.
+
 So this script will manually enable USB tethering when connecting to my PC.
+
+```shell
+# .exe running from startup, so skip the step of copying itself to the startup folder
+This is an automatic execution, skipping this step.
+
+# Start pooling for devices through adb
+Listening for devices...
+
+# First pooling call adb devices which starts the daemon server
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+
+# Trigger the callback
+New device connected
+
+# Then enable USB tethering through adb
+USB Tethering command was executed...
+
+# Removed device callback (does nothing but notificate)
+Some device was removed
+
+# So on...
+New device connected
+USB Tethering command was executed...
+Some device was removed
+New device connected
+USB Tethering command was executed...
+Some device was removed
+New device connected
+USB Tethering command was executed...
+```
 
 ## Source
 
@@ -42,3 +75,12 @@ To generate the Windows executable `.exe` (you can skip this section if you plan
 - Install `PyInstaller` by running `pip install pyinstaller`.
 - Generate the executable by running: `pyinstaller -F main.py`.
 - Execute the `.exe` version of this script located in `dist/main.exe` with administrative powers (required since it will create a file within `...\Windows\Start Menu\Programs\Startup`).
+
+## Environment
+
+Sometimes the environment info is useful to track version conflicts:
+
+```
+Python 3.10.5
+Windows 10 Pro
+```
